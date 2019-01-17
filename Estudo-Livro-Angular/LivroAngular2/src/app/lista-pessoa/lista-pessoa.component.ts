@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PessoaService } from './pessoa.service';
 
 @Component({
   selector: 'app-lista-pessoa',
@@ -8,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class ListaPessoaComponent implements OnInit {
 
   nome: string = "Vinícius";
-  pessoas: string[] = ['Vinícius', 'Henrique', 'Gerentão'];
+  pessoas: string[];
 
-  constructor() { }
+  constructor(private service: PessoaService) {
+    this.pessoas = service.getPessoas();
+  }
 
   ngOnInit() {
   }
